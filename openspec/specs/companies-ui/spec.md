@@ -1,11 +1,15 @@
 ## ADDED Requirements
 
 ### Requirement: Companies page route
-The application SHALL render a Companies page at the `/companies` route that displays a paginated table of companies.
+The application SHALL render a Companies page at the `/companies` route inside the MainLayout wrapper (with sidebar). The root route `/` SHALL redirect to `/dashboard` instead of `/companies`.
 
 #### Scenario: Navigate to companies page
 - **WHEN** the user navigates to `/companies`
-- **THEN** the Companies page SHALL render with a table of companies fetched from `GET /companies`
+- **THEN** the Companies page SHALL render inside the MainLayout with the sidebar visible, displaying a paginated table of companies fetched from `GET /companies`
+
+#### Scenario: Root redirect changed
+- **WHEN** the user navigates to `/`
+- **THEN** the application SHALL redirect to `/dashboard` (not `/companies`)
 
 ### Requirement: Companies table columns
 The companies table SHALL display columns matching the Figma design. Each row SHALL show company data with a selection checkbox.
@@ -116,11 +120,15 @@ Pagination controls SHALL appear at the bottom of the table with page navigation
 - **THEN** the pagination controls SHALL indicate 3 total pages
 
 ### Requirement: Responsive layout
-The companies table SHALL adapt to smaller viewports as per the Figma responsive design.
+The companies table SHALL adapt within the MainLayout content area. The layout SHALL work correctly when the sidebar is expanded or collapsed.
 
 #### Scenario: Table on small viewport
 - **WHEN** the viewport width is less than 768px
 - **THEN** the table layout SHALL adapt for mobile viewing per Figma design
+
+#### Scenario: Table adapts to sidebar state
+- **WHEN** the sidebar transitions between expanded and collapsed
+- **THEN** the companies table SHALL adjust its width to fill the available content area without overflow
 
 ### Requirement: Loading and error states
 All async operations (fetch, create, update, delete) SHALL display appropriate loading and error states.

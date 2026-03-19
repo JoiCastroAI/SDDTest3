@@ -40,6 +40,9 @@ This document defines the frontend standards for a React 18 / TypeScript applica
 - **react-bootstrap**: Bootstrap components for React
 - **react-bootstrap-icons** (optional): Icon library
 
+### Data Visualization
+- **Recharts**: Charting library for dashboards (BarChart, LineChart, AreaChart, PieChart)
+
 ### State Management & Data Flow
 - **React Context**: Global state (auth, theme, shared data)
 - **Custom hooks**: Encapsulated stateful logic
@@ -62,7 +65,8 @@ frontend/
 ├── src/
 │   ├── components/            # Reusable UI components
 │   │   ├── common/            # Shared components (Button, Modal, Alert)
-│   │   └── [feature]/         # Feature-specific components
+│   │   ├── layout/            # Layout components (MainLayout, Sidebar)
+│   │   └── [feature]/         # Feature-specific components (e.g., dashboard/)
 │   ├── pages/                 # Page-level components (one per route)
 │   ├── contexts/              # React Context providers and hooks
 │   ├── hooks/                 # Custom hooks (non-context)
